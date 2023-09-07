@@ -1,11 +1,25 @@
 package api.endpoints;
 
+import api.utilities.*;
+
 //in this class we will have only URLs
 
 public class Routes 
 {
 	
-	public static String base_url = "https://petstore.swagger.io/v2";
+	public static String base_url;
+	
+	
+	static
+	{
+		base_url = ReadProperties.readProperty("petstoreGetUserUrl");
+	}
+	
+
+	
+//	public static String base_url = "https://petstore.swagger.io/v2";
+
+	
 	
 	//user model 
 	
