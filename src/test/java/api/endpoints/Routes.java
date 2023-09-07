@@ -1,5 +1,7 @@
 package api.endpoints;
 
+//in this class we will have only URLs
+
 public class Routes 
 {
 	
