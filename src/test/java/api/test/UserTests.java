@@ -86,7 +86,7 @@ public class UserTests
 	@Test(priority=1)
 	public void testPostUser()
 	{
-		
+		System.out.println("POST | Created user ----->");
 		Response response = UserEndPoints.createUser(userPayLoad);
 		response.then().log().all();
 		assertEquals(response.getStatusCode(),200);
@@ -103,7 +103,7 @@ public class UserTests
 	public void testGetUserByName()
 	{
 		System.out.println("pojo user name--->"+userPayLoad.getUsername());
-		
+		System.out.println("GET | Get User --->");
 		Response response = UserEndPoints.readUser(this.userPayLoad.getUsername());
 		
 		response.then().log().all();
@@ -128,8 +128,8 @@ public class UserTests
 		userPayLoad.setPhone(fake.phoneNumber().cellPhone());
 		userPayLoad.setUserStatus(fake.options().option(1,0,2,3));
 		
-		System.out.println("Updated user----->"+userPayLoad.getUsername());
-		
+//		System.out.println("Updated user----->"+userPayLoad.getUsername());
+		System.out.println("PUT | Update User ---->");
 		
 		Response response = UserEndPoints.updateUser(userPayLoad, userPayLoad.getUsername());
 		
@@ -137,7 +137,15 @@ public class UserTests
 		response.then().log().all();
 		
 		System.out.println("UPDATED user -------->");
-		testGetUserByName();
+		
+		// validating response after update is done ---
+		
+		Response responseAfterUpdate = UserEndPoints.readUser(this.userPayLoad.getUsername());
+		
+		responseAfterUpdate.then().log().all();
+		assertEquals(responseAfterUpdate.getStatusCode(),200);
+		
+		
 	}
 	
 	
@@ -146,11 +154,21 @@ public class UserTests
 	@Test(priority=4)
 	public void testDeleteUserByName()
 	{
+		System.out.println("DELETE | Delete User ----> ");
 		Response response = UserEndPoints.deleteUser(userPayLoad.getUsername());
 		
 		response.then().log().body().statusCode(200);
-		response.then().log().all();
+		//response.then().log().all();
 		System.out.println("Deletion Success for user---->"+userPayLoad.getUsername());
+	
+		
+		//Validating after deletion that user is not found ---
+		
+		Response responseAfterDelete = UserEndPoints.readUser(this.userPayLoad.getUsername());
+		System.out.println("Validating that user has been DELETED successfully--->"+this.userPayLoad.getUsername());
+		responseAfterDelete.then().log().body().statusCode(404);
+		responseAfterDelete.then().log().all();
+	
 	}
 }
 

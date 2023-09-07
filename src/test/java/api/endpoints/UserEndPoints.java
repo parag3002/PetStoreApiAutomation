@@ -102,7 +102,7 @@ public class UserEndPoints
 					.pathParam("username", userName)
 					
 				.when()
-					.get(Routes.delete_url);
+					.delete(Routes.delete_url);
 				
 		return response;
 	}
