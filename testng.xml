@@ -3,7 +3,7 @@
 <suite name="ApiSuite">
   <test thread-count="5" name="Test1">
     <classes>
-      <class name="api.test.Test1"/>
+      <class name="api.test.UserTests"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
