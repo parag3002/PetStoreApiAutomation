@@ -12,8 +12,9 @@ public class ReadProperties
 	{
 		try
 		{
-		FileInputStream propertyFile = new FileInputStream("C:\\E\\workspaces\\workSpace_RestAssured_P1\\PetStoreApiAutomation\\src\\test\\resources\\routs.properties");
-		
+//		FileInputStream propertyFile = new FileInputStream("C:\\E\\workspaces\\workSpace_RestAssured_P1\\PetStoreApiAutomation\\src\\test\\resources\\routs.properties");
+		FileInputStream propertyFile = new FileInputStream(".\\src\\test\\resources\\routs.properties");
+			
 		Properties property = new Properties();
 		property.load(propertyFile);
 		fileData = property.getProperty(s);
@@ -24,4 +25,11 @@ public class ReadProperties
 		return fileData.toString();
 		
 	}
+
+	
+	//For debug
+//	public static void main(String args[])
+//	{
+//		System.out.println(readProperty("petstoreGetUserUrl"));
+//	}
 }
