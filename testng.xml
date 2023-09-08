@@ -4,6 +4,7 @@
   <test thread-count="5" name="Test1">
     <classes>
       <class name="api.test.UserTests"/>
+      <class name="api.test.DataDrivenTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
