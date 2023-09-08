@@ -1,9 +1,10 @@
 api\test\DataDrivenTest.class
-api\utilities\ReadProperties.class
 api\test\Test1.class
 api\test\UserTests.class
-api\payload\UserPojo.class
+api\utilities\ExtentReportManager.class
 api\utilities\DataProviders.class
-api\utilities\ExcelUtility.class
 api\endpoints\UserEndPoints.class
 api\endpoints\Routes.class
+api\utilities\ReadProperties.class
+api\payload\UserPojo.class
+api\utilities\ExcelUtility.class

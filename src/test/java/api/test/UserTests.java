@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.testng.ITestContext;
@@ -22,6 +23,7 @@ import com.github.javafaker.IdNumber;
 import com.google.gson.JsonObject;
 
 import dev.failsafe.internal.util.Assert;
+import groovyjarjarantlr4.v4.runtime.misc.LogManager;
 import groovyjarjarpicocli.CommandLine.IExitCodeExceptionMapper;
 import io.restassured.http.ContentType;
 import io.restassured.internal.ResponseSpecificationImpl.HamcrestAssertionClosure;
@@ -50,7 +52,7 @@ public class UserTests
 	}
 	
 	
-	
+	public Logger logger;
 	
 	
 	@BeforeClass
@@ -74,7 +76,12 @@ public class UserTests
 		userPayLoad.setPhone(fake.phoneNumber().cellPhone());
 		userPayLoad.setUserStatus(fake.options().option(1,0,2,3));
 		
+		logger = org.apache.logging.log4j.LogManager.getLogger(this.getClass());
+		
 		System.out.println("Created user----->"+userPayLoad.getUsername());
+		
+		
+		logger.debug("debugging.....");
 		
 	}
 	
@@ -86,10 +93,13 @@ public class UserTests
 	@Test(priority=1)
 	public void testPostUser()
 	{
+		logger.info("*********************POST || Initiating Create User*******************************");
 		System.out.println("POST | Created user ----->");
 		Response response = UserEndPoints.createUser(userPayLoad);
 		response.then().log().all();
 		assertEquals(response.getStatusCode(),200);
+		logger.info("*********************POST || Create User Success*******************************");
+
 		
 	}
 	
