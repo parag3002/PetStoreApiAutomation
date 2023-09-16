@@ -33,8 +33,17 @@ public class Routes
 	
 		// Here will create store model urls
 	
+	
+	
+	
 	// pet model
 		
-		//Here will create pet model urls
+	public static String findPetByStatusUrl = base_url+"/pet/findByStatus";
+	public static String findPetByIdUrl = base_url+"/pet/{petID}"; 
+	
+	// reqres model
+	
+	public static String reqresBseUrl = ReadProperties.readProperty("reqresBaseURL");
+	
 	
 }

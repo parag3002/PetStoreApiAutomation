@@ -11,6 +11,8 @@
     <classes>
       <class name="api.test.UserTests"/>
       <class name="api.test.DataDrivenTest"/>
+      <class name="api.test.PetModel_Tests"/>
+      <class name="api.test.ReqresTests"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

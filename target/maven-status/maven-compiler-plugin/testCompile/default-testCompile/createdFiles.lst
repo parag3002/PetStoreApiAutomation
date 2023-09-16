@@ -1,10 +1,16 @@
 api\test\DataDrivenTest.class
 api\test\Test1.class
 api\test\UserTests.class
+api\test\ReqresTests.class
 api\utilities\ExtentReportManager.class
 api\utilities\DataProviders.class
 api\endpoints\UserEndPoints.class
 api\endpoints\Routes.class
 api\utilities\ReadProperties.class
+api\test\PetModel_Tests.class
+api\endpoints\PetModelEndPoints.class
 api\payload\UserPojo.class
+api\payload\PetModel_Pojo.class
+api\payload\Reqres_Pojo.class
 api\utilities\ExcelUtility.class
+api\endpoints\ReqresEndPoints.class
