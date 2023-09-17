@@ -45,12 +45,16 @@ import api.endpoints.*;
 public class PetModel_Tests 
 {
 
-	PetModel_Pojo petPayload;
+	Pet petPayload;
+	Category category;
+	Tag tag;
 	Faker fake;
 	int randomInt;
 	PetModel_Tests()
 	{
-		petPayload = new PetModel_Pojo();
+		petPayload = new Pet();
+		category = new Category();
+		tag = new Tag();
 		
 	}
 	
@@ -65,13 +69,16 @@ public class PetModel_Tests
         randomInt = random.nextInt(max - min + 1) + min;
         
         petPayload.setId(randomInt);
-//        petPayload.setCategory_id(4897);
-//        petPayload.setCategory_name(fake.name().username());
+        category.setId(randomInt+10);
+        category.setName(fake.name().username());
+        petPayload.setCategory(category);
         petPayload.setName(fake.name().firstName());
-//        petPayload.setPhotoUrls(fake.internet().url());
-//        petPayload.setTags_id(4897);
-//        petPayload.setTags_name(fake.name().lastName());
-        petPayload.setStatus("parag");
+        List<String> photoUrls = List.of("https:://screenshot."+fake.internet().url());
+        petPayload.setPhotoUrls(photoUrls);
+        tag.setId(randomInt+20);
+        tag.setName(fake.name().lastName());
+        petPayload.setTags(List.of(tag));
+        petPayload.setStatus(fake.options().option("available","unavailable","animal"));
 	}
 	
 	@Test(priority=1)

@@ -76,7 +76,7 @@ public class PetModelEndPoints
 	}
 	
 	
-	public static Response createNewPet(PetModel_Pojo payLoad)
+	public static Response createNewPet(Pet payLoad)
 	{
 		Response response = given()
 		
