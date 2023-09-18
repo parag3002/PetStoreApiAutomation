@@ -1,0 +1,80 @@
+      
+     [  
+        {
+                "emp_id":1,
+                "emp_name": "Parag Das",
+                "emp_skills":
+                    {
+                        "QA" : "YES",
+                        "CODING" : "NO",
+                        "Management" : "YES",
+                        "LOG Analysis" : "NO"
+                    },
+                "emp_base_location" : "Bangalore",
+                "emp_benifits" :
+                    [
+                        {
+                            "corona_kavach" : "NO",
+                            "health_insurence" : "YES"
+                        },
+                        {
+                            "Udemy_access" : "YES",
+                            "Intranet_access" : "YES"
+                        }
+                    ],
+                "emp_status" : "ACTIVE"
+            },
+
+            {
+                "emp_id":2,
+                "emp_name": "Sumit Agrawal",
+                "emp_skills":
+                    {
+                        "QA" : "YES",
+                        "CODING" : "NO",
+                        "Management" : "YES",
+                        "LOG Analysis" : "NO"
+                    },
+                "emp_base_location" : "Bangalore",
+                "emp_benifits" :
+                    [
+                        {
+                            "corona_kavach" : "NO",
+                            "health_insurence" : "YES"
+                        },
+                        {
+                            "Udemy_access" : "YES",
+                            "Intranet_access" : "YES"
+                        }
+                    ],
+                "emp_status" : "ACTIVE"
+            },
+
+            {
+                "emp_id":3,
+                "emp_name": "Arup Roy",
+                "emp_skills":
+                    {
+                        "QA" : "YES",
+                        "CODING" : "NO",
+                        "Management" : "YES",
+                        "LOG Analysis" : "NO"
+                    },
+                "emp_base_location" : "Bangalore",
+                "emp_benifits" :
+                    [
+                        {
+                            "corona_kavach" : "NO",
+                            "health_insurence" : "YES"
+                        },
+                        {
+                            "Udemy_access" : "YES",
+                            "Intranet_access" : "YES"
+                        }
+                    ],
+                "emp_status" : "ACTIVE"
+            }
+
+        ] 
+    
+           

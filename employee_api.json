@@ -1,0 +1,24 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "John",
+      "location": "India",
+      "phone": "1234567890",
+      "courses": [
+        "java",
+        "selenium"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "John",
+      "location": "India",
+      "phone": "1234567890",
+      "courses": [
+        "java",
+        "selenium"
+      ]
+    }
+  ]
+}

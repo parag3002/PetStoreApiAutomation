@@ -1,6 +1,5 @@
 package api.test;
 
-
 import static io.restassured.RestAssured.*;
 import static io.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
@@ -10,6 +9,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.List;
+
+import javax.validation.Payload;
 
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
@@ -38,83 +39,70 @@ import jdk.internal.net.http.common.Log;
 import net.sf.saxon.exslt.Math;
 
 import api.payload.*;
-import api.utilities.ReadProperties;
 import api.endpoints.*;
 
-
-public class PetModel_Tests 
+public class Store_Tests 
 {
 
-	Pet petPayload;
-	Category category;
-	Tag tag;
 	Faker fake;
-	int randomInt;
-	PetModel_Tests()
-	{
-		petPayload = new Pet();
-		category = new Category();
-		tag = new Tag();
-		
-	}
+	StorePojo payLoad;
+	private int id;
 	
 	@BeforeClass
-	public void setupData()
+	public void dataSetup()
 	{
 		fake = new Faker();
-		
+		payLoad = new StorePojo();
 		java.util.Random random = new java.util.Random();
 		int min = 100;
         int max = 900;
-        randomInt = random.nextInt(max - min + 1) + min;
+        int randomInt = random.nextInt(max - min + 1) + min;
         
-        petPayload.setId(randomInt);
-        category.setId(randomInt+10);
-        category.setName(fake.name().username());
-        petPayload.setCategory(category);
-        petPayload.setName(fake.name().firstName());
-        List<String> photoUrls = List.of(("https:/screenshot."+fake.internet().url()),("https:/screenshoot/abc//"+fake.internet().url()));
-        petPayload.setPhotoUrls(photoUrls);
-        tag.setId(randomInt+20);
-        tag.setName(fake.name().lastName());
-        petPayload.setTags(List.of(tag));
-        petPayload.setStatus(fake.options().option("available","unavailable","animal"));
+        payLoad.setId(randomInt);
+        payLoad.setPetId(randomInt+2);
+        payLoad.setQuantity(1);
+        payLoad.setShipDate("2023-09-18T09:18:10.197Z");
+        payLoad.setStatus("available");
+        payLoad.setComplete(true);
+        
 	}
 	
 	@Test(priority=1)
-	public void testCreatePet()
+	public void test_Place_order_for_pet()
 	{
-		Response response = PetModelEndPoints.createNewPet(petPayload);
+		Response response = StoreEndPoints.placeOrderForPet(payLoad);
+		System.out.println("=================Store Model started ==============");
 		response.then().log().all();
+		
+		this.id = response.jsonPath().getInt("id");
+		System.out.println("id--->"+id);
 	}
 	
 	
 	@Test(priority=2)
-	public void testFindPetByStatus()
+	public void test_Find_Purchase_order_By_ID()
 	{
-		Response response = PetModelEndPoints.findPetByStatus(ReadProperties.readProperty("petStatus2"));
+		Response response = StoreEndPoints.findOrderById(id);
 		response.then().log().all();
 	}
 	
 	
 	@Test(priority=3)
-	public void testFindPetById()
+	public void test_List_pet_inventory_by_status()
 	{
-		Response response = PetModelEndPoints.findPetById(randomInt);
+		Response response = StoreEndPoints.getPetInventoryByStatus();
 		response.then().log().all();
 	}
 	
 	
+
+	
+	@Test(priority=4)
+	public void test_Delete_purchase_order_by_ID()
+	{
+		Response response = StoreEndPoints.deletePurchaseOrderByID(id);
+		response.then().log().all();
+	}
+	
 	
 }
-
-
-//private int id;
-//private int category_id;
-//private String category_name;
-//private String name;
-//private String photoUrls;
-//private String tags_id;
-//private String tags_name;
-//private String status;
-

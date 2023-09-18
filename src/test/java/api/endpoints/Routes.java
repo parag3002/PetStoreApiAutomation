@@ -31,8 +31,10 @@ public class Routes
 	
 	//store model
 	
-		// Here will create store model urls
-	
+	public static String findOrderByIdUrl = base_url+"/store/order/{id}";
+	public static String findPetInventoryByStatusUrl = base_url+"/store/inventory";
+	public static String placeOrderForPetUrl = base_url+"/store/order";
+	public static String deleteOrderByIdUrl = base_url+"/store/order/{id}";
 	
 	
 	
