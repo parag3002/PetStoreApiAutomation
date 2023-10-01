@@ -38,6 +38,7 @@ import jdk.internal.net.http.common.Log;
 import net.sf.saxon.exslt.Math;
 
 import api.payload.*;
+import api.utilities.Data;
 import api.utilities.ReadProperties;
 import api.endpoints.*;
 
@@ -48,8 +49,8 @@ public class PetModel_Tests
 	Pet petPayload;
 	Category category;
 	Tag tag;
-	Faker fake;
-	int randomInt;
+	
+
 	PetModel_Tests()
 	{
 		petPayload = new Pet();
@@ -61,24 +62,19 @@ public class PetModel_Tests
 	@BeforeClass
 	public void setupData()
 	{
-		fake = new Faker();
 		
-		java.util.Random random = new java.util.Random();
-		int min = 100;
-        int max = 900;
-        randomInt = random.nextInt(max - min + 1) + min;
-        
-        petPayload.setId(randomInt);
-        category.setId(randomInt+10);
-        category.setName(fake.name().username());
+
+        petPayload.setId(Data.randomIntGenerator());
+        category.setId(Data.randomIntGenerator()+10);
+        category.setName(Data.fakeData().name().username());
         petPayload.setCategory(category);
-        petPayload.setName(fake.name().firstName());
-        List<String> photoUrls = List.of(("https:/screenshot."+fake.internet().url()),("https:/screenshoot/abc//"+fake.internet().url()));
+        petPayload.setName(Data.fakeData().name().firstName());
+        List<String> photoUrls = List.of(("https:/screenshot."+Data.fakeData().internet().url()),("https:/screenshoot/abc//"+Data.fakeData().internet().url()));
         petPayload.setPhotoUrls(photoUrls);
-        tag.setId(randomInt+20);
-        tag.setName(fake.name().lastName());
+        tag.setId(Data.randomIntGenerator()+20);
+        tag.setName(Data.fakeData().name().lastName());
         petPayload.setTags(List.of(tag));
-        petPayload.setStatus(fake.options().option("available","unavailable","animal"));
+        petPayload.setStatus(Data.fakeData().options().option("available","unavailable","animal"));
 	}
 	
 	@Test(priority=1)
@@ -100,7 +96,7 @@ public class PetModel_Tests
 	@Test(priority=3)
 	public void testFindPetById()
 	{
-		Response response = PetModelEndPoints.findPetById(randomInt);
+		Response response = PetModelEndPoints.findPetById(Data.randomIntGenerator());
 		response.then().log().all();
 	}
 	

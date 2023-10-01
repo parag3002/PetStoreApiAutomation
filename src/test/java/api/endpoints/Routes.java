@@ -48,4 +48,23 @@ public class Routes
 	public static String reqresBseUrl = ReadProperties.readProperty("reqresBaseURL");
 	
 	
+	// https://api.instantwebtools.net/v1/airlines/:id
+	
+	public static String instantWebToolsBaseUri=ReadProperties.readProperty("instantWebToolsBaseUri");
+	public static String readAirlineById=instantWebToolsBaseUri+"/airlines/{id}";
+	public static String createPpassanger=instantWebToolsBaseUri+"/passenger";
+	public static String createAirlineByData=instantWebToolsBaseUri+"/airlines";
+	
+	
+	//https://restful-booker.herokuapp.com/apidoc/index.html#api-Booking-UpdateBooking
+	
+	public static String bookingBaseUrl = ReadProperties.readProperty("bookingBaseUrl");
+	public static String bookingCreateTokenUrl = bookingBaseUrl + "/auth";
+	public static String getBookingIdsUrl = bookingBaseUrl + "/booking";
+	public static String getBookingByIdUrl = bookingBaseUrl + "/booking/{booking_id}";
+	public static String createBookingUrl = bookingBaseUrl + "/booking";
+	public static String updateBookingByIdUrl = bookingBaseUrl + "/booking/{booking_id}";
+	public static String deleteBookingByIdUrl = bookingBaseUrl + "/booking/{booking_id}";
+	public static String bookingHealthCheckUrl = bookingBaseUrl + "/ping";
+	
 }

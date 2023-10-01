@@ -37,12 +37,12 @@ import jdk.internal.net.http.common.Log;
 import net.sf.saxon.exslt.Math;
 
 import api.payload.*;
+import api.utilities.Data;
 import api.endpoints.*;
 
 public class UserTests 
 {
 
-	Faker fake;
 	UserPojo userPayLoad;
 	
 	UserTests()
@@ -58,23 +58,16 @@ public class UserTests
 	@BeforeClass
 	public void setupData()
 	{
-		fake = new Faker();
-//		userPayLoad = new UserPojo(); // now after seting all data this variable have all data
-		
-		java.util.Random random = new java.util.Random();
-		int min = 100;
-        int max = 900;
-        int randomInt = random.nextInt(max - min + 1) + min;
         
 //		userPayLoad.setId(fake.idNumber().hashCode());
-        userPayLoad.setId(randomInt);
-		userPayLoad.setUsername(fake.name().username());
-		userPayLoad.setFirstName(fake.name().firstName());
-		userPayLoad.setLastName(fake.name().lastName());
-		userPayLoad.setEmail(fake.internet().safeEmailAddress());
-		userPayLoad.setPassword(fake.internet().password());
-		userPayLoad.setPhone(fake.phoneNumber().cellPhone());
-		userPayLoad.setUserStatus(fake.options().option(1,0,2,3));
+        userPayLoad.setId(Data.randomIntGenerator());
+		userPayLoad.setUsername(Data.fakeData().name().username());
+		userPayLoad.setFirstName(Data.fakeData().name().firstName());
+		userPayLoad.setLastName(Data.fakeData().name().lastName());
+		userPayLoad.setEmail(Data.fakeData().internet().safeEmailAddress());
+		userPayLoad.setPassword(Data.fakeData().internet().password());
+		userPayLoad.setPhone(Data.fakeData().phoneNumber().cellPhone());
+		userPayLoad.setUserStatus(Data.fakeData().options().option(1,0,2,3));
 		
 		logger = org.apache.logging.log4j.LogManager.getLogger(this.getClass());
 		
@@ -129,14 +122,13 @@ public class UserTests
 	@Test(priority=3)
 	public void testUpdateUserByName()
 	{
-		fake = new Faker();
 
-		userPayLoad.setFirstName(fake.name().firstName());
-		userPayLoad.setLastName(fake.name().lastName());
-		userPayLoad.setEmail(fake.internet().safeEmailAddress());
-		userPayLoad.setPassword(fake.internet().password());
-		userPayLoad.setPhone(fake.phoneNumber().cellPhone());
-		userPayLoad.setUserStatus(fake.options().option(1,0,2,3));
+		userPayLoad.setFirstName(Data.fakeData().name().firstName());
+		userPayLoad.setLastName(Data.fakeData().name().lastName());
+		userPayLoad.setEmail(Data.fakeData().internet().safeEmailAddress());
+		userPayLoad.setPassword(Data.fakeData().internet().password());
+		userPayLoad.setPhone(Data.fakeData().phoneNumber().cellPhone());
+		userPayLoad.setUserStatus(Data.fakeData().options().option(1,0,2,3));
 		
 //		System.out.println("Updated user----->"+userPayLoad.getUsername());
 		System.out.println("PUT | Update User ---->");
