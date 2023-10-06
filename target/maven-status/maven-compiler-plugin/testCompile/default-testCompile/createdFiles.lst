@@ -1,13 +1,16 @@
 api\payload\Pet.class
 api\test\DataDrivenTest.class
 api\test\UserTests.class
+api\test\BookTest.class
 api\test\ReqresTests.class
 api\utilities\ExtentReportManager.class
 api\utilities\DataProviders.class
 api\test\Store_Tests.class
 api\payload\BookingDates.class
 api\endpoints\UserEndPoints.class
+api\payload\BookPOJO.class
 api\test\BookingDataDriven_Test.class
+api\utilities\BookDataProvider.class
 api\test\PetModel_Tests.class
 api\endpoints\PetModelEndPoints.class
 api\payload\UserPojo.class
@@ -26,6 +29,7 @@ api\payload\BookingCreatePOJO.class
 api\utilities\Data.class
 api\utilities\ReadProperties.class
 api\endpoints\StoreEndPoints.class
+api\endpoints\BookEndPoints.class
 api\utilities\BookingDataProvider.class
 api\endpoints\AirlineEndpoints.class
 api\utilities\ExcelUtility.class

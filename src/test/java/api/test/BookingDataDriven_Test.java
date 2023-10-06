@@ -93,7 +93,7 @@ public class BookingDataDriven_Test
 		response.then().log().all();
 		
 
-		String jsonString = "[{\"bookingid\": 2271}, {\"bookingid\": 1615}, {\"bookingid\": 18}]";
+		//String jsonString = "[{\"bookingid\": 2271}, {\"bookingid\": 1615}, {\"bookingid\": 18}]";
 
 		// Parse the JSON string
 		//JsonPath jsonPath = new JsonPath(jsonString);

@@ -1,0 +1,2 @@
+https://www.codewithmmak.com/blog/api-testing-demo-site/
+https://restful-booker.herokuapp.com/apidoc/index.html

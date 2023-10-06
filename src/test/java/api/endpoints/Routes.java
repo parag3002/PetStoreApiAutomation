@@ -67,4 +67,6 @@ public class Routes
 	public static String deleteBookingByIdUrl = bookingBaseUrl + "/booking/{booking_id}";
 	public static String bookingHealthCheckUrl = bookingBaseUrl + "/ping";
 	
+	
+	
 }

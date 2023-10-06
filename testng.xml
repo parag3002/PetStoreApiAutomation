@@ -15,6 +15,7 @@
       <class name="api.test.ReqresTests"/>
       <class name="api.test.Store_Tests"/>
       <class name="api.test.BookingDataDriven_Test"/>
+      <class name="api.test.BookTest"/>
       
       
     </classes>
